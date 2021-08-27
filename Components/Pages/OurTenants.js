@@ -1,4 +1,4 @@
-import React,{ useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
@@ -48,11 +48,10 @@ const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding: 0rem;
 
   img {
-    filter: invert(0.5);
-    opacity: 0.3;
+    max-width:100%;
   }
 `;
 
@@ -99,7 +98,7 @@ const FilterBox = styled.input`
   }
 `;
 function OurTenants({ tenants }) {
-    const [result, setResult] = useState(tenants?? []) ;
+  const [result, setResult] = useState(tenants ?? []);
   return (
     <OurTenantsSection>
       <h2>Our Tenants</h2>
@@ -118,11 +117,9 @@ function OurTenants({ tenants }) {
           <Link key={index} href={`/our-tenants/${item.slug}`}>
             <OurTenantsItem className={"wow slideInUp"}>
               <ImageWrapper>
-                <Image
-                  src="/images/garasi-food-logo.png"
-                  width="150"
-                  height="70"
-                  quality={70}
+                <img
+                  src="/images/back-tenant-gf.jpeg"
+                  loading="lazy"
                 />
               </ImageWrapper>
               <ContentItem>
